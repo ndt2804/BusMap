@@ -1,10 +1,635 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- BOOSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- FONT AWESOME -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>BusMap</title>
+    <!-- FONT  -->
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto:wght@400;500;700;900&display=swap"
+            rel="stylesheet"
+    />
+    <!-- LIGHTBOX MASTER -->
+    <link rel="stylesheet" href="./CSS/lsb.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./CSS/HomePage.css" />
 </head>
 <body>
-<h1>Hệ Thống Giao Thông Buýt TP.HCM</h1>
+<header>
+    <h2> <a href="#" style="text-decoration: none">Bus<span>Map</span></a></h2>
+    <ul class="header__list" id="mainNav">
+        <li class="header__items">
+            <a href="#home" class="header__link active">TRANG CHỦ</a>
+        </li>
+        <li class="header__items">
+            <a href="#about" class="header__link">VỀ CHÚNG TÔI</a>
+        </li>
+        <li class="header__items">
+            <a href="#blog" class="header__link">BLOG</a>
+        </li>
+        <li class="header__items">
+            <a href="#pfp" class="header__link">BLOG</a>
+        </li>
+        <li class="header__items">
+            <a href="#agents" class="header__link">LIÊN HỆ</a>
+        </li>
+        <li class="header__items">
+            <a href="#contacts" class="header__link">MUA VÉ</a>
+        </li>
+        <li class="header__items">
+            <a href="" class="header__link">TUYẾN XE</a>
+        </li>
+    </ul>
+</header>
+<section class="slider" id="home">
+    <ul class="rslides">
+        <li>
+            <img src="./img/bus-map-1.jpg" alt="" />
+            <div class="slider__contentheading">
+                <h2>ỨNG DỤNG TIỆN LỢI</h2>
+                <p>Nhanh chóng hiệu quả tiện ích</p>
+            </div>
+        </li>
+        <li>
+            <img src="./img/bus-map-2.png" alt="" />
+            <div class="slider__contentheading">
+                <h2>ỨNG DỤNG MIỄN PHÍ</h2>
+                <p>Nâng cao chất lượng trải nghiệm</p>
+            </div>
+        </li>
+        <li>
+            <img src="./img/bus-map.png" alt="" />
+            <div class="slider__contentheading">
+                <h2>TÌM ĐƯỜNG THÔNG MINH</h2>
+                <p>Dễ dàng di chuyển </p>
+            </div>
+        </li>
+    </ul>
+
+    <div class="reslider__wrapper">
+        <a href="#" class="rslides_nav rslides1_nav prev">Previous</a>
+        <a href="#" class="rslides_nav rslides1_nav next">Next</a>
+    </div>
+    <div class="reslider__wrapper">
+        <a href="#" class="rslides_nav rslides1_nav prev">Previous</a>
+        <a href="#" class="rslides_nav rslides1_nav next">Next</a>
+    </div>
+</section>
+<section class="about" id="about">
+    <h2 class="heading__same">About</h2>
+    <div class="about__info">
+        <div class="about__address">
+            <i class="fa fa-home"></i>
+            <p>
+                BusMap giúp bạn sử dụng các phương tiện giao thông công cộng tiện lợi, nhanh chóng và tiết kiệm
+            </p>
+        </div>
+        <div class="about__address">
+            <i class="fa fa-key"></i>
+            <p>
+                BusMap luôn nỗ lực cung cấp các thông tin chính xác về vị trí, thời gian đến...
+                của các chuyến xe nhằm đảm bảo có thể hỗ trợ người dùng tối ưu hành trình khi sử dụng giao thông công cộng.
+            </p>
+        </div>
+        <div class="about__address">
+            <i class="fa fa-money-bill-alt"></i>
+            <p>
+                Là một trong những ứng dụng giao thông công cộng hàng đầu và hoàn toàn miễn phí,
+                BusMap tự hào được đồng hành cùng hàng triệu người dùng trong những chuyến đi.
+            </p>
+        </div>
+    </div>
+    <div class="about__main">
+        <div class="about__title">About us</div>
+        <p class="about__desc">
+            Chúng tôi giúp việc di chuyển bằng phương tiện công cộng tiện lợi và thông minh hơn
+            Giúp các bạn tìm được con đường, thời gian để di chuyển tới các địa bàn nhanh chóng
+            tiện lợi và mất ít thời gian hơn.
+        </p>
+    </div>
+</section>
+<section class="stats" id="">
+    <h2 class="heading__same">Stats</h2>
+    <div class="stats__wrapper">
+        <div class="stat__list">
+            <p class="counter">3500</p>
+            <p>clients</p>
+        </div>
+        <div class="stat__list">
+            <p class="counter">650</p>
+            <p>Plans</p>
+        </div>
+        <div class="stat__list">
+            <p class="counter">1021</p>
+            <p>projects</p>
+        </div>
+        <div class="stat__list">
+            <p class="counter">1010</p>
+            <p>Likes</p>
+        </div>
+    </div>
+</section>
+<section class="blog" id="blog">
+    <h2 class="heading__same">BLog</h2>
+    <div class="blog__wrapper">
+        <figure class="blog__content">
+            <img src="./img/bus-map.png" alt="" />
+            <div class="blog__heading">
+                <h3 data-toggle="modal" data-target="#exampleModalLong">BusMap được vinh danh trong giải thưởng sáng tạo thành phố Hồ Chí Minh lần 2</h3>
+                <p>
+                    Được tổ chức 2 năm một lần, Giải thưởng Sáng tạo thành phố Hồ Chí Minh là một trong những hoạt động tạo cảm hứng cho các đơn vị, ban ngành và tổ chức trong nhiều lĩnh vực nỗ lực đổi mới và sáng tạo để tạo ra nhiều đóng góp cho cộng đồng hơn.
+                </p>
+                <a href="./img/img1.jpg" data-lightbox="gallery5">
+                </a>
+                <button type="button" class="snip1582 snip1582-primary" data-toggle="modal" data-target="#exampleModalLong">
+                    Read more..
+                </button>
+
+                <!-- Modal Long-->
+                <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Housing</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="./img/bus-map.png" alt="">
+                                <p>Được tổ chức 2 năm một lần, Giải thưởng Sáng tạo thành phố Hồ Chí Minh là một trong những hoạt động tạo cảm hứng cho các đơn vị, ban ngành và tổ chức trong nhiều lĩnh vực nỗ lực đổi mới và sáng tạo để tạo ra nhiều đóng góp cho cộng đồng hơn.
+
+                                    Trong đêm trao giải được tổ chức vào 30/12/2021 vừa qua, Công ty Cổ phần BusMap (tiền thân của Công ty Cổ phần Công nghệ Phenikaa MaaS) đã được xướng tên trao giải nhì trong lĩnh vực Khởi nghiệp và sáng tạo, một trong các lĩnh vực vô có rất nhiều đột phá của của lễ vinh danh.
+                                    Cụ thể, 7 lĩnh vực có dự án được xét duyệt trong Giải thưởng này bao gồm: Phát triển kinh tế; quốc phòng, an ninh; quản lý nhà nước; truyền thông; văn học nghệ thuật; khoa học kỹ thuật; khởi nghiệp sáng tạo. Giải thưởng được tổ chức xét duyệt 2 năm một lần nhằm khuyến khích tiềm năng sáng tạo của các đơn vị, ban, ngành trong đóng góp cho các dự án phát triển thành phố thông minh.
+                                    Giải thưởng Sáng tạo thành phố Hồ Chí Minh lần thứ 2 năm 2021 thu hút sự tham gia của 195 hồ sơ. Qua nhiều vòng xét chọn kĩ lưỡng, Hội đồng xét tặng Giải thưởng đã chọn ra 50 công trình đột phá và có tính ứng dụng cao nhất để trao giải, gồm 3 giải Nhất, 15 giải Nhì và 32 giải Ba.
+                                    Được công nhận tại lễ trao thưởng Đổi mới sáng tạo đã tạo ra nguồn cảm hứng và động lực mạnh mẽ để Phenikaa MaaS cũng như BusMap tiếp tục phát huy tinh thần bứt phá, sáng tạo trong xây dựng các dự án công nghệ. Phenikaa MaaS luôn mong rằng có thể ngày càng mang lại nhiều đóng góp giá trị cho quá trình chuyển đổi số của thành phố Hồ Chí Minh nói riêng và Việt Nam nói chung.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Modal center-->
+                <div class="modal modal-dialog modal-dialog-centered fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </figure>
+        <figure class="blog__content">
+            <img src="./img/bus-map.png" alt="" />
+            <div class="blog__heading">
+                <h3 data-toggle="modal" data-target="#exampleModalLong-1">BUSMAP – Startup Việt đoạt giải QUÁN QUÂN</h3>
+                <p>
+                    Với hành trình 6 năm cống hiến trọn trái tim cho giải pháp thành phố thông minh nâng cao chất lượng đời sống người dân,
+                    BusMap đã đoạt chiến thắng thuyết phục với chủ đề “Smart cities, smart living” tại ITU Virtual Digital World 2020 SME Award.
+                </p>
+                <a href="./img/bus-map.png" data-lightbox="gallery5">
+                </a>
+                <button type="button" class="snip1582 snip1582-primary" data-toggle="modal" data-target="#exampleModalLong-1">
+                    Read more..
+                </button>
+
+                <!-- Modal Long-->
+                <div class="modal fade" id="exampleModalLong-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Housing</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="./img/bus-map.png" alt="">
+                                <p>Với hành trình 6 năm cống hiến trọn trái tim cho giải pháp thành phố thông minh nâng cao chất lượng đời sống người dân, BusMap đã đoạt chiến thắng thuyết phục với chủ đề “Smart cities, smart living” tại ITU Virtual Digital World 2020 SME Award.
+                                    Thông tin về ITU: ITU là cơ quan chuyên trách của Liên hợp quốc về công nghệ thông tin và truyền thông (ICT), thúc đẩy sự đổi mới trong lĩnh vực CNTT-TT cùng với 193 Quốc gia Thành viên trên toàn thế giới.
+                                    ITU Digital World Awards là nơi vinh danh những giải pháp và cống hiến xuất sắc với mục đích xây dựng một thế giới tốt đẹp hơn thông qua các phát kiến và công nghệ hiện đại với 4 đề mục: Kết nối (Connectivity),
+                                    Y tế số (E-health), Tài chính số (Digital finance) và Thành phố thông minh (Smart city, smart living). Trải qua nhiều năm tổ chức, giải thưởng đã thu hút sự chú ý của rất nhiều cá nhân và tổ chức trên thế giới nhằm tìm ra những cái tên sáng giá để gửi trao danh hiệu cao quý.
+                                    Năm nay, lễ trao giải trực tuyến diễn ra cùng sự tham dự của thứ trưởng Bộ TTTT Việt Nam, BusMap vinh dự được nhận giải thưởng cao quý này và sánh vai cùng với 3 dự án đến từ các quốc gia lớn trên thế giới: Ấn Độ, Israel và Nam Phi.
+                                    Trong đó, BusMap đã kịp vụt sáng với ý tưởng mang tính sáng tạo và đổi mới xoay quanh giải pháp thành phố thông minh tổng thể nhằm đưa chất lượng cuộc sống lên tầm cao mới.
+                                    Đây không phải là một lời hứa hẹn mà đã được BusMap hiện thực hoá và đang dần hoàn thiện theo thời gian với định hướng rõ ràng, tiêu biểu có thể kể đến dự án quản lý hệ thống giao thông công cộng tại thành phố Đà Nẵng hiện đang hoạt động hiệu quả.
+                                    Hơn cả giá trị của một giải thưởng, ITU Award là sự công nhận tuyệt đối từ đấu trường quốc tế dành cho những nỗ lực không ngừng nghỉ của đội ngũ BusMap. Bằng tư duy đổi mới sáng tạo vì một thế giới tốt đẹp hơn, cùng với sự công nhận ngày hôm nay,
+                                    chúng tôi sẽ tiếp tục hướng về thành phố tương lai bằng những giải pháp thông minh và ưu việt.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal center-->
+                <div class="modal modal-dialog modal-dialog-centered fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </figure>
+        <figure class="blog__content">
+            <img src="./img/bus-map.png" alt="" />
+            <div class="blog__heading">
+                <h3 data-toggle="modal" data-target="#exampleModalLong-2">BusMap mở rộng và tái kích hoạt bản đồ Covid-19 tại hai điểm nóng</h3>
+                <p>
+                    Quảng Ninh và Hải Dương vừa chính thức đưa bản đồ thông tin dịch tễ COVID-19 vào hoạt động ngay sau khi hai khu vực xuất hiện các ca lây nhiễm trong cộng đồng.
+                    Hơn 200 ca mắc mới trong cộng đồng kéo theo hàng nghìn F1 với dịch tễ phức tạp và khó truy vết. Ngay lúc này, điều mà người dân cần là một bản đồ thông tin dịch tễ để theo dõi và phòng tránh dịch trên diện rộng.
+                </p>
+                <a href="./img/img1.jpg" data-lightbox="gallery5">
+                </a>
+                <button type="button" class="snip1582 snip1582-primary" data-toggle="modal" data-target="#exampleModalLong-2">
+                    Read more..
+                </button>
+
+                <!-- Modal Long-->
+                <div class="modal fade" id="exampleModalLong-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Housing</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <img src="./img/img2.jpg" alt="">
+                                <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Modal center-->
+                <div class="modal modal-dialog modal-dialog-centered fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+    </div>
+</section>
+<section class="getmore">
+    <div class="getmore__image">
+        <img src="./img/bus-map.png" alt="" />
+        <a href="#small-dialog1" class="play-icon popup-with-zoom-anim"><span class="fa fa-play-circle" aria-hidden="true"></span>
+        </a>
+        <div id="small-dialog1" class="w3ls_small_dialog wthree_pop mfp-hide">
+            <div class="agileits_modal_body">
+                <iframe width="420" height="315" src="https://www.youtube.com/embed/8HrhegYauZ4"></iframe>
+                <button title="Close (Esc)" type="button" class="mfp-close">×</button>
+            </div>
+        </div>
+    </div>
+    <div class="getmore__content">
+        <h2 class="">HƯỚNG DẪN</h2>
+        <p>
+            Để sử dụng BusMap, bạn cần bật định vị của thiết bị trước, sau đó truy cập vào ứng dụng BusMap và nhập địa điểm bạn cần đến vào thanh tìm kiếm. Sau khi địa điểm hiện ra trên bản đồ, bạn chọn “Tìm chỉ dẫn đến đây” để dẫn đến phần tìm đường. Đến mục tìm đường, bạn sẽ nhận được những gợi ý về cách di chuyển.
+        </p>
+
+        <button type="button" class="snip1582 snip1582-primary" data-toggle="modal" data-target="#exampleModalLong-4">
+            Read more..
+        </button>
+
+        <!-- Modal Long-->
+        <div class="modal fade" id="exampleModalLong-4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">HƯỚNG DẪN</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="./img/bus-map.png" width="480" height="315" alt="">
+                        <p>HƯỚNG DẪN SỬ DỤNG BUSMAP – XE BUÝT THÀNH PHỐ
+                            Tra cứu – Bạn có thể nhìn thấy thông tin tất cả các tuyến trong mục này. Chúng tôi hiển thị các tuyến buýt và cả các phương tiện công cộng khác trong khu vực của bạn. Từ đó, bạn có thể biết được tuyến có hoạt động hay không? Cảnh báo gì cho tuyến? Sau cùng là lựa chọn tuyến bạn cần xem thông tin chi tiết về: biểu đồ giờ, lộ trình, thông tin vé, đánh giá
+                            Tìm đường – Chúng tôi sẽ gợi ý, chỉ dẫn di chuyển từ A → B bằng nhiều cách thức khác nhau như: xe buýt hoặc kết hợp tất cả các loại hình công cộng Metro, xe buýt sông, xe đường dài. Bạn có thể bấm vào nút tìm đường hoặc tìm kiếm trực tiếp ngoài màn hình chính trong khung “Tìm kiếm địa điểm”. BusMap mang đến cho người dùng những tính năng tối ưu nhất để giúp cho việc di chuyển trở nên dễ dàng, tiện lợi hơn.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal center-->
+        <div class="modal modal-dialog modal-dialog-centered fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</section>
+<section class="portfolio" id="pfp">
+    <h2 class="heading__same">BUSLIFE</h2>
+    <div class="pfolio__wrapper">
+        <div class="pfolio__content">
+            <a href="./img/bus-life-1.jpg" class="lsb-preview" data-lsb-group="header">
+                <img src="./img/bus-life-1.jpg" alt="" />
+                <div class="pfolio__heading">
+                    <h2>BUSLIFE</h2>
+                    <p>Nơi lưu giữ khoảnh khắc</p>
+                </div>
+            </a>
+
+
+        </div>
+        <div class="pfolio__content">
+            <a href="./img/bus-life-2.jpg" class="lsb-preview" data-lsb-group="header">
+                <img src="./img/bus-life-2.jpg" alt="" />
+                <div class="pfolio__heading">
+                    <h2>BUSLIFE</h2>
+                    <p>Nơi lưu giữ khoảnh khắc</p>
+                </div>
+            </a>
+
+
+        </div>
+        <div class="pfolio__content">
+            <a href="./img/bus-life-3.jpg" class="lsb-preview" data-lsb-group="header">
+                <img src="./img/bus-life-3.jpg" alt="" />
+                <div class="pfolio__heading">
+                    <h2>BUSLIFE</h2>
+                    <p>Nơi lưu giữ khoảnh khắc</p>
+                </div>
+            </a>
+
+
+        </div>
+        <div class="pfolio__content">
+            <a href="./img/bus-life-9.jpg" class="lsb-preview" data-lsb-group="header">
+                <img src="./img/bus-life-9.jpg" alt="" />
+                <div class="pfolio__heading">
+                    <h2>BUSLIFE</h2>
+                    <p>Nơi lưu giữ khoảnh khắc</p>
+                </div>
+            </a>
+
+
+        </div>
+        <div class="pfolio__content">
+            <a href="./img/bus-life-4.jpg" class="lsb-preview" data-lsb-group="header">
+                <img src="./img/bus-life-4.jpg" alt="" />
+                <div class="pfolio__heading">
+                    <h2>BUSLIFE</h2>
+                    <p>Nơi lưu giữ khoảnh khắc</p>
+                </div>
+            </a>
+
+
+        </div>
+        <div class="pfolio__content">
+            <a href="./img/bus-life-7.jpg" class="lsb-preview" data-lsb-group="header">
+                <img src="./img/bus-life-7.jpg" alt="" />
+                <div class="pfolio__heading">
+                    <h2>BUSLIFE</h2>
+                    <p>Nơi lưu giữ khoảnh khắc</p>
+                </div>
+            </a>
+
+
+        </div>
+
+
+
+    </div>
+</section>
+<section class="subscribe">
+    <h2 class="heading__same">SUBSCRIBE</h2>
+    <div class="subscribe__content">
+        <p>
+            Đăng ký để nhận thông tin mới nhất về dự án
+        </p>
+        <form action="">
+            <input type="email" placeholder="Email" />
+            <button class="snip1582">Click</button>
+        </form>
+    </div>
+</section>
+<section class="agents" id="agents">
+    <h2 class="heading__same">Thành Viên</h2>
+    <div class="agents__wrapper">
+        <figure class="agents__content">
+            <img src="./img/avatar-1.jpg" alt="">
+            <figcaption>
+                <h2>Nguyễn Duy Tân</h2>
+                <p>Developer</p>
+                <div class="agent__wrapper-icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fa fa-rss"></i>
+                </div>
+            </figcaption>
+        </figure>
+        <figure class="agents__content">
+            <img src="./img/avatar-2.jpg" alt="">
+            <figcaption>
+                <h2>Hoàng Thị Ngọc</h2>
+                <p>Developer</p>
+                <div class="agent__wrapper-icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fa fa-rss"></i>
+                </div>
+            </figcaption>
+        </figure>
+        <figure class="agents__content">
+            <img src="./img/avatar-4.jpg" alt="">
+            <figcaption>
+                <h2>Nguyễn Huỳnh Minh Phát</h2>
+                <p>Developer</p>
+                <div class="agent__wrapper-icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fa fa-rss"></i>
+                </div>
+            </figcaption>
+        </figure>
+
+    </div>
+</section>
+<section class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.420663990599!2d106.7829140147496!3d10.855574792267817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175276e7ea103df%3A0xb6cf10bb7d719327!2zSHV0ZWNoIEtodSBFIC0gVHJ1bmcgVMOibSDEkMOgbyBU4bqhbyBOaMOibiBM4buxYyBDaOG6pXQgTMaw4bujbmcgQ2Fv!5e0!3m2!1svi!2s!4v1651233362622!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+<section class="contact" id="contacts">
+    <h2 class="heading__same">Contact Us</h2>
+    <div class="contact__wrapper">
+        <div class="contact__info">
+            <input type="text" placeholder="Name">
+            <input type="text" placeholder="Last Name">
+            <input type="email" placeholder="Email">
+            <input type="text" placeholder="Phone">
+        </div>
+        <div class="contact__message">
+            <textarea placeholder="Message" name="" id="" cols="30" rows="10"></textarea>
+            <input type="submit" value="Submit">
+        </div>
+    </div>
+
+</section>
+<footer>
+    <div class="footer__content">
+
+        <p> &#169; Housing. All Rights Reserved | Design by <span>ToDoiDA</span></p>
+        <div class="agent__wrapper-icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fa fa-rss"></i>
+            <i class="fab fa-vk"></i>
+        </div>
+    </div>
+</footer>
+<!-- Back to top -->
+<a href="#" class="backToTop cd-top text-replace js-cd-top">
+    <img src="./img/arrowup.png" alt="">
+</a>
+<!-- Thư viện hỗ trọ Jquery giúp hỗ trợ các hiệu ứng Animation -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Jquery waypoints -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+
+<script src="./js/responsiveslides.min.js"></script>
+<script>
+    $(function () {
+        $(".rslides").responsiveSlides({
+            nav: true,
+            pagination: true,
+        });
+    });
+</script>
+<!-- LIGHTBOX MASTER -->
+<script src="./js/lsb.js"></script>
+<script>
+    // $(window).load(function () {
+    //     $.fn.lightspeedBox();
+    // });
+    $(window).on('load', function() {
+        $.fn.lightspeedBox();
+
+    });
+</script>
+
+<!-- CountUp JS -->
+<script src="./Js/jquery.countup.js"></script>
+<script>
+    $(".counter").countUp();
+</script>
+<!-- BST -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<!-- BACK TO TOP -->
+<script src="./js/util.js"></script>
+<script src="./js/main-backtotop.js"></script>
 </body>
+<!-- Navigation Bar Js-->
+<script>
+    var mainNav = document.getElementById("mainNav");
+    var listNav = mainNav.getElementsByTagName("a");
+    for(var i = 0; i < listNav.length; i++) {
+        listNav[i].addEventListener("click", function() {
+            // tìm thẻ đang được gắn class active
+            var current = document.querySelector("#mainNav .active");
+            // xóa class active của thẻ đang được gắn
+            current.className = current.className.replace("active", "");
+            // Thêm class active vào thẻ li được click
+            this.className += " active";
+        })
+    }
+</script>
+<script src="./js/jquery.magnific-popup.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".popup-with-zoom-anim").magnificPopup({
+            type: "inline",
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: "auto",
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 300,
+            mainClass: "my-mfp-zoom-in"
+        });
+    });
+</script>
+
+<!-- OWL JS -->
+<script src="./js/owl.carousel.min.js"></script>
+<script>
+    $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        responsive: {
+            0: {
+                items: 1,
+            },
+        },
+    });
+</script>
 </html>
