@@ -4,10 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-
-public class HomeController {
-    @RequestMapping( "HomePage")
-    public String index() {
-        return "HomePage";
-    }
+public class BuyTicketController {
+    @RequestMapping("BuyTicket")
+    public String buyticket() {return "BuyTicket";}
 }

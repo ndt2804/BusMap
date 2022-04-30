@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- BOOSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- FONT AWESOME -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>BusMap</title>
+    <!-- FONT  -->
+    <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto:wght@400;500;700;900&display=swap"
+            rel="stylesheet"
+    />
+    <!-- LIGHTBOX MASTER -->
+    <link rel="stylesheet" href="./CSS/lsb.css">
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./CSS/HomePage.css" />
+</head>
+<body>
+<header>
+    <h2> <a href="" style="text-decoration: none">Bus<span>Map</span></a></h2>
+    <ul class="header__list" id="mainNav">
+        <li class="header__items">
+            <a th:href="@{/HomePage#home}" class="header__link active">TRANG CHỦ</a>
+        </li>
+        <li class="header__items">
+            <a th:href="@{/HomePage#about}" class="header__link">VỀ CHÚNG TÔI</a>
+        </li>
+        <li class="header__items">
+            <a th:href="@{/HomePage#blog}" class="header__link">BLOG</a>
+        </li>
+        <!--        <li class="header__items">-->
+        <!--            <a href="#pfp" class="header__link">BLOG</a>-->
+        <!--        </li>-->
+        <li class="header__items">
+            <a th:href="@{/HomePage#agents}" class="header__link">LIÊN HỆ</a>
+        </li>
+        <li class="header__items">
+            <a th:href="@{/BuyTicket}" class="header__link">MUA VÉ</a>
+        </li>
+        <li class="header__items">
+            <a th:href="@{/BuyTicket}" class="header__link">TUYẾN XE</a>
+        </li>
+    </ul>
+</header>
+</body>
+</html>
