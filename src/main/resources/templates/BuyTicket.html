@@ -24,52 +24,66 @@
     <link rel="stylesheet" href="./CSS/HomePage.css" />
 </head>
 <body>
-<header>
-    <h2> <a th:href="@{/HomePage}" style="text-decoration: none">Bus<span>Map</span></a></h2>
-    <ul class="header__list" id="mainNav">
-        <li class="header__items">
-            <a th:href="@{/HomePage#home}" class="header__link active">TRANG CHỦ</a>
-        </li>
-        <li class="header__items">
-            <a th:href="@{/HomePage#about}" class="header__link">VỀ CHÚNG TÔI</a>
-        </li>
-        <li class="header__items">
-            <a th:href="@{/HomePage#blog}" class="header__link">BLOG</a>
-        </li>
-        <!--        <li class="header__items">-->
-        <!--            <a href="#pfp" class="header__link">BLOG</a>-->
-        <!--        </li>-->
-        <li class="header__items">
-            <a th:href="@{/HomePage#agents}" class="header__link">LIÊN HỆ</a>
-        </li>
-        <li class="header__items">
-            <a th:href="@{/BuyTicket}" class="header__link">MUA VÉ</a>
-        </li>
-        <li class="header__items">
-            <a th:href="@{/BuyTicket}" class="header__link">TUYẾN XE</a>
-        </li>
-    </ul>
-</header>
-<section class="getmore">
-    <div class="getmore__image">
-        <img src="./img/ve-bus" alt="" />
-        <a href="#small-dialog1" class="play-icon popup-with-zoom-anim"><span class="fa fa-play-circle" aria-hidden="true"></span>
-        </a>
-        <div id="small-dialog1" class="w3ls_small_dialog wthree_pop mfp-hide">
-            <div class="agileits_modal_body">
-                <iframe width="420" height="315" src="https://www.youtube.com/embed/8HrhegYauZ4"></iframe>
-                <button title="Close (Esc)" type="button" class="mfp-close">×</button>
+    <header>
+        <h2> <a th:href="@{/HomePage}" style="text-decoration: none">Bus<span>Map</span></a></h2>
+        <ul class="header__list" id="mainNav">
+            <li class="header__items">
+                <a th:href="@{/HomePage#home}" class="header__link active">TRANG CHỦ</a>
+            </li>
+            <li class="header__items">
+                <a th:href="@{/HomePage#about}" class="header__link">VỀ CHÚNG TÔI</a>
+            </li>
+            <li class="header__items">
+                <a th:href="@{/HomePage#blog}" class="header__link">BLOG</a>
+            </li>
+            <!--        <li class="header__items">-->
+            <!--            <a href="#pfp" class="header__link">BLOG</a>-->
+            <!--        </li>-->
+            <li class="header__items">
+                <a th:href="@{/HomePage#agents}" class="header__link">LIÊN HỆ</a>
+            </li>
+            <li class="header__items">
+                <a th:href="@{/BuyTicket}" class="header__link">MUA VÉ</a>
+            </li>
+            <li class="header__items">
+                <a th:href="@{/BuyTicket}" class="header__link">TUYẾN XE</a>
+            </li>
+        </ul>
+    </header>
+    <section class="getmore">
+        <div class="getmore__image">
+            <img src="./img/ve-bus-thang.jpg" height="700"  alt="" />
+            <a href="#small-dialog1" class="play-icon popup-with-zoom-anim"><span class="fa fa-play-circle" aria-hidden="true"></span>
+            </a>
+            <div id="small-dialog1" class="w3ls_small_dialog wthree_pop mfp-hide">
+                <div class="agileits_modal_body">
+                    <iframe width="420" height="315" src="https://www.youtube.com/embed/8HrhegYauZ4"></iframe>
+                    <button title="Close (Esc)" type="button" class="mfp-close">×</button>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="getmore__content">
-        <h2 class="">HƯỚNG DẪN</h2>
-        <p>
-            Để sử dụng BusMap, bạn cần bật định vị của thiết bị trước, sau đó truy cập vào ứng dụng BusMap và nhập địa điểm bạn cần đến vào thanh tìm kiếm. Sau khi địa điểm hiện ra trên bản đồ, bạn chọn “Tìm chỉ dẫn đến đây” để dẫn đến phần tìm đường. Đến mục tìm đường, bạn sẽ nhận được những gợi ý về cách di chuyển.
-        </p>
+        <div class="getmore__content">
+            <h2 class="">HƯỚNG DẪN MUA Vé</h2>
+            <p>
+                Tùy chọn vào loại vé bạn muốn mua 3 6 hay 9 tháng, loại sinh viên hay người lớn sau đó click vào
+                Mua Vé để tiến hành bước thanh toán, sau khi thanh toán xong thì có một mã CODE QR đươc gửi về mail
+                Sau đó dùng mã qr này để quét khi lên bus.
+            </p>
+            <p>
+                Loại Vé:
+            </p>
+            <button type="button" >Sinh Viên</button>   <button type="button" >Người Lớn</button>
+            <p>Thời Hạn</p>
 
-        <button type="button" class="snip1582 snip1582-primary" data-toggle="modal" data-target="#exampleModalLong-4">
-            Read more..
-        </button>
+            <button type="button" >1 Tháng</button><button type="button" >3 Tháng</button><button type="button" >6 Tháng</button><button type="button" >1 Năm</button>
+<!--            <button  type="button" class="snip1582 snip1582-primary" data-toggle="modal" data-target="#exampleModalLong-4">-->
+<!--               Mua Vé-->
+<!--            </button>-->
+<!--            <button onclick="href=/Payment" >Mua Vé</button>-->
+            <form method="get" action="/Payment">
+                <button type="submit" class="snip1582 snip1582-primary">Mua Vé</button>
+            </form>
+        </div>
+        </section>
 </body>
 </html>
