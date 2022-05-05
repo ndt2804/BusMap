@@ -22,6 +22,7 @@
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="./CSS/HomePage.css" />
+
 </head>
 <!--<style>-->
 <!--    * {-->
@@ -264,6 +265,12 @@
 <!--    }-->
 <!--</style>-->
 <body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script src="./js/superplaceholder.min.js"></script>
 
 <main role="main">
     <div class="container mt-4">
@@ -316,45 +323,36 @@
                 </div>
                 <div class="col-md-8 order-md-1">
                     <h4 class="mb-3">Thông tin khách hàng</h4>
-
                     <div class="row">
                         <div class="col-md-12">
                             <label for="kh_ten">Họ tên</label>
-                            <input type="text" class="form-control" name="kh_ten" id="kh_ten"
-                                   value="Nguyễn Duy Tân" readonly="">
+                            <input type="text" class="form-control" name="kh_ten" id="kh_ten">
                         </div>
                         <div class="col-md-12">
                             <label for="kh_gioitinh">Giới tính</label>
-                            <input type="text" class="form-control" name="kh_gioitinh" id="kh_gioitinh" value="Nam"
-                                   readonly="">
+                            <input type="text" class="form-control" name="kh_gioitinh" id="kh_gioitinh">
                         </div>
                         <div class="col-md-12">
                             <label for="kh_diachi">Địa chỉ</label>
-                            <input type="text" class="form-control" name="kh_diachi" id="kh_diachi"
-                                   value="475A Điện Biên Phủ" readonly="">
+                            <input type="text" class="form-control" name="kh_diachi" id="kh_diachi">
                         </div>
                         <div class="col-md-12">
                             <label for="kh_dienthoai">Điện thoại</label>
-                            <input type="text" class="form-control" name="kh_dienthoai" id="kh_dienthoai"
-                                   value="0988406305" readonly="">
+                            <input type="text" class="form-control" name="kh_dienthoai" id="kh_dienthoai">
                         </div>
                         <div class="col-md-12">
                             <label for="kh_email">Email</label>
-                            <input type="text" class="form-control" name="kh_email" id="kh_email"
-                                   value="abc.xyz@gmail.com" readonly="">
+                            <input type="text" class="form-control" name="kh_email" id="kh_email">
                         </div>
                         <div class="col-md-12">
                             <label for="kh_ngaysinh">Ngày sinh</label>
-                            <input type="text" class="form-control" name="kh_ngaysinh" id="kh_ngaysinh"
-                                   value="20/01/0001" readonly="">
+                            <input type="text" class="form-control" name="kh_ngaysinh" id="kh_ngaysinh">
                         </div>
                         <div class="col-md-12">
                             <label for="kh_cmnd">CMND</label>
-                            <input type="text" class="form-control" name="kh_cmnd" id="kh_cmnd" value="362209685"
-                                   readonly="">
+                            <input type="text" class="form-control" name="kh_cmnd" id="kh_cmnd">
                         </div>
                     </div>
-
                     <h4 class="mb-3">Hình thức thanh toán</h4>
 
                     <div class="d-block my-3">
@@ -449,9 +447,100 @@
 <!--        <button class="btn next-btn">Next Step</button>-->
 <!--    </div>-->
 <!--</div>-->
-
+<script>
+    superplaceholder({
+        el: document.getElementById('kh_ten'),
+        sentences: [ 'Họ và Tên Của Bạn'],
+        options: {
+            letterDelay: 100,
+            sentenceDelay: 1000,
+            startOnFocus: false,
+            loop: true,
+            shuffle: false,
+            showCursor: true,
+            cursor: '|',
+        }
+    });
+    superplaceholder({
+        el: document.getElementById('kh_gioitinh'),
+        sentences: [ 'Giới tính của bạn'],
+        options: {
+            letterDelay: 100,
+            sentenceDelay: 1000,
+            startOnFocus: false,
+            loop: true,
+            shuffle: false,
+            showCursor: true,
+            cursor: '|',
+        }
+    });
+    superplaceholder({
+        el: document.getElementById('kh_diachi'),
+        sentences: [ 'Địa chỉ của bạn'],
+        options: {
+            letterDelay: 100,
+            sentenceDelay: 1000,
+            startOnFocus: false,
+            loop: true,
+            shuffle: false,
+            showCursor: true,
+            cursor: '|',
+        }
+    });
+    superplaceholder({
+        el: document.getElementById('kh_dienthoai'),
+        sentences: [ 'Số điện thoại của bạn'],
+        options: {
+            letterDelay: 100,
+            sentenceDelay: 1000,
+            startOnFocus: false,
+            loop: true,
+            shuffle: false,
+            showCursor: true,
+            cursor: '|',
+        }
+    });
+    superplaceholder({
+        el: document.getElementById('kh_email'),
+        sentences: [ 'Email của bạn'],
+        options: {
+            letterDelay: 100,
+            sentenceDelay: 1000,
+            startOnFocus: false,
+            loop: true,
+            shuffle: false,
+            showCursor: true,
+            cursor: '|',
+        }
+    });
+    superplaceholder({
+        el: document.getElementById('kh_ngaysinh'),
+        sentences: [ 'Ngày sinh của bạn'],
+        options: {
+            letterDelay: 100,
+            sentenceDelay: 1000,
+            startOnFocus: false,
+            loop: true,
+            shuffle: false,
+            showCursor: true,
+            cursor: '|',
+        }
+    });
+    superplaceholder({
+        el: document.getElementById('kh_cmnd'),
+        sentences: [ 'Chứng minh thư của bạn'],
+        options: {
+            letterDelay: 100,
+            sentenceDelay: 1000,
+            startOnFocus: false,
+            loop: true,
+            shuffle: false,
+            showCursor: true,
+            cursor: '|',
+        }
+    });
+</script>
 <script src="./js/payment.js"></script>
-
 <script src="../vendor/jquery/jquery.min.js"></script>
 <script src="../vendor/popperjs/popper.min.js"></script>
 <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>

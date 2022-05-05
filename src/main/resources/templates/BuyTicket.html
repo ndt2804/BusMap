@@ -7,21 +7,16 @@
     <!-- BOOSTRAP -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!-- FONT AWESOME -->
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
-    <title>BusMap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+
     <!-- FONT  -->
-    <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto:wght@400;500;700;900&display=swap"
-            rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"/>
     <!-- LIGHTBOX MASTER -->
     <link rel="stylesheet" href="./CSS/lsb.css">
-
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="./CSS/HomePage.css" />
+
+    <title>BusMap</title>
 </head>
 <body>
     <header>
@@ -36,9 +31,6 @@
             <li class="header__items">
                 <a th:href="@{/HomePage#blog}" class="header__link">BLOG</a>
             </li>
-            <!--        <li class="header__items">-->
-            <!--            <a href="#pfp" class="header__link">BLOG</a>-->
-            <!--        </li>-->
             <li class="header__items">
                 <a th:href="@{/HomePage#agents}" class="header__link">LIÊN HỆ</a>
             </li>
@@ -46,21 +38,13 @@
                 <a th:href="@{/BuyTicket}" class="header__link">MUA VÉ</a>
             </li>
             <li class="header__items">
-                <a th:href="@{/BuyTicket}" class="header__link">TUYẾN XE</a>
+                <a th:href="@{/busroute}" class="header__link">TUYẾN XE</a>
             </li>
         </ul>
     </header>
     <section class="getmore">
         <div class="getmore__image">
             <img src="./img/ve-bus-thang.jpg" height="700"  alt="" />
-            <a href="#small-dialog1" class="play-icon popup-with-zoom-anim"><span class="fa fa-play-circle" aria-hidden="true"></span>
-            </a>
-            <div id="small-dialog1" class="w3ls_small_dialog wthree_pop mfp-hide">
-                <div class="agileits_modal_body">
-                    <iframe width="420" height="315" src="https://www.youtube.com/embed/8HrhegYauZ4"></iframe>
-                    <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-                </div>
-            </div>
         </div>
         <div class="getmore__content">
             <h2 class="">HƯỚNG DẪN MUA Vé</h2>
@@ -76,14 +60,10 @@
             <p>Thời Hạn</p>
 
             <button type="button" >1 Tháng</button><button type="button" >3 Tháng</button><button type="button" >6 Tháng</button><button type="button" >1 Năm</button>
-<!--            <button  type="button" class="snip1582 snip1582-primary" data-toggle="modal" data-target="#exampleModalLong-4">-->
-<!--               Mua Vé-->
-<!--            </button>-->
-<!--            <button onclick="href=/Payment" >Mua Vé</button>-->
             <form method="get" action="/Payment">
                 <button type="submit" class="snip1582 snip1582-primary">Mua Vé</button>
             </form>
         </div>
-        </section>
+    </section>
 </body>
 </html>

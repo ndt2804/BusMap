@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<!--    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>-->
+    <link rel="stylesheet" href="./CSS/HomePage.css" />
+    <link rel="stylesheet" href="./CSS/lsb.css">
+    <title>Hệ Thống Giao Thông Buýt TP.HCM</title>
+</head>
+<style>
+    #map{
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        background-color: green;
+        margin: auto;
+    }
+</style>
+<body>
+<script src="jquery-3.2.1.min.js"></script>
+<header>
+    <h2> <a th:href="@{/HomePage}" style="text-decoration: none">Bus<span>Map</span></a></h2>
+    <ul class="header__list" id="mainNav">
+        <li class="header__items">
+            <a th:href="@{/HomePage#home}" class="header__link active">TRANG CHỦ</a>
+        </li>
+        <li class="header__items">
+            <a th:href="@{/HomePage#about}" class="header__link">VỀ CHÚNG TÔI</a>
+        </li>
+        <li class="header__items">
+            <a th:href="@{/HomePage#blog}" class="header__link">BLOG</a>
+        </li>
+        <li class="header__items">
+            <a th:href="@{/HomePage#agents}" class="header__link">LIÊN HỆ</a>
+        </li>
+        <li class="header__items">
+            <a th:href="@{/BuyTicket}" class="header__link">MUA VÉ</a>
+        </li>
+        <li class="header__items">
+            <a th:href="@{/busroute}" class="header__link">TUYẾN XE</a>
+        </li>
+    </ul>
+</header>
+<div>Vị trí hiện tại: <span id="currentPosition"></span></div>
+<div>
+    <select onchange="searchMap(this.value)">
+        <option value="">Chọn địa điểm</option>
+        <option value="cafe">Quán cafe</option>
+        <option value="food">Quán ăn</option>
+        <option value="hospital">Bệnh viện</option>
+        <option value="bank">Ngân hàng</option>
+        <option value="atm">Cây ATM</option>
+        <option value="bus_station">Trạm xe buýt</option>
+        <option value="museum">Bảo tàng</option>
+        <option value="park">Công viên</option>
+        <option value="parking">Chỗ đỗ xe</option>
+    </select>
+</div>
+<div id="map"></div>
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly" defer > </script>
+<script type="text/javascript">
+    var bando;
+    var lat = 0;
+    var long = 0;
+    function initMap() {
+        infowindow = new google.maps.InfoWindow();
+        window.navigator.geolocation.getCurrentPosition(function (pos) {
+            lat = parseFloat(pos.coords.latitude);
+            long = parseFloat(pos.coords.longitude);
+           //       $('#currentPosition').text(lat + ',' + long);
+            bando = new google.maps.Map(document.getElementById('map'),{
+                //Lấy tâm bản đồ tại toạ độ hiện tại
+                center: {lat:lat, lng:long},
+                zoom:15
+            });
+            // Tạo 1 điểm chấm trên bản đồ
+            var cp = new google.maps.Marker({
+                position: {lat:lat, lng:long},
+                map: bando
+            });
+        });
+    }
+    function searchMap(loaidiadiem) {
+        if (!loaidiadiem || loaidiadiem == '')
+            return;
+        var request = {
+            location: {
+                lat: lat,
+                lng: long
+            }, //Toạ độ bắt đầu tìm kiếm
+            radius: '1000', // ~ tìm kiếm phạm vi 1000m
+            type: loaidiadiem
+        };
+        var service = new google.maps.places.PlacesService(bando);
+        service.nearbySearch(request, showPlaces); //khi có dữ liệu tìm kiếm trả về thì gọi đến function showPlaces
+    }
+    var arrMarkers = []
+    var infowindow;
+
+    function showPlaces(result, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK && result && result.length > 0) {
+            //Khi có danh sách địa điểm mới -> xoá điểm cũ đi
+            for (i in arrMarkers)
+                arrMarkers[i].setMap(null);
+            arrMarkers = [];
+            //Tạo các marker (điểm) đánh dấu các vị trí tìm được
+            for (i in result) {
+                var place = result[i];
+                var image = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25)
+                };
+                console.log(place);
+                var marker = new google.maps.Marker({
+                    map: bando,
+                    icon: image,
+                    title: place.name,
+                    content: "<strong>" + place.name + "</strong><br />" + place.vicinity,
+                    position: place.geometry.location,
+                    data: place
+                });
+                google.maps.event.addEventListener(marker, 'click', function() {
+                    infowindow.setContent(this.content)
+                    infowindow.open(bando, this);
+                    TimDuong(this.data);
+                });
+                arrMarkers.push(marker);
+            }
+        }
+    }
+    var ddisplay;
+    function TimDuong(place) {
+        var dservice = new google.maps.DirectionsService();
+        if (ddisplay)
+            ddisplay.setMap(null);
+        ddisplay = new google.maps.DirectionsRenderer();
+        ddisplay.setMap(bando);
+        var request = {
+            origin: {
+                lat: lat,
+                lng: long
+            },
+            destination: place.geometry.location,
+            travelMode: 'WALKING',
+            provideRouteAlternatives: true
+        };
+        dservice.route(request, function(result, status) {
+            if (status === "OK") ddisplay.setDirections(result);
+        });
+    }
+</script>
+</body>
+</html>
