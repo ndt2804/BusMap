@@ -475,6 +475,7 @@ header h2 span {
 }
 /* GET MORE */
 .getmore {
+    /*margin: 074px;*/
     display: flex;
     /* padding: 40px 0; */
     font-family: "Montserrat", sans-serif;
@@ -525,6 +526,55 @@ header h2 span {
     font-family: "Montserrat", sans-serif;
 }
 .getmore__content p {
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #fff;
+    line-height: 1.8;
+    text-align: center;
+    margin-bottom: 32px;
+    font-family: "Montserrat", sans-serif;
+}
+.getmore_ticket{
+    margin: 074px;
+}
+.getmore_ticket__image{
+    width: 45%;
+    position: relative;
+    /* text-align: center; */
+}
+.getmore_ticket__image img {
+    width: 100%;
+    display: block;
+}
+.getmore_ticket__image a {
+    position: absolute;
+    padding: 10px 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    display: inline-block;
+    background: rgba(0, 189, 189, 0.53);
+    border-radius: 50%;
+    color: #ffffff;
+    outline: none;
+    font-size: 30px;
+    font-family: "Montserrat", sans-serif;
+}
+.getmore_ticket__content {
+    width: 55%;
+    text-align: center;
+    background-color: #00cdce;
+    padding: 0 66px;
+    font-family: "Montserrat", sans-serif;
+}
+.getmore_ticket__content h2 {
+    font-size: 42px;
+    margin: 42px 0 22px;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+}
+.getmore_ticket__content p {
     font-size: 15px;
     letter-spacing: 1px;
     color: #fff;
