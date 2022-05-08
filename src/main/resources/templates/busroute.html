@@ -6,15 +6,39 @@
 <!--    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>-->
     <link rel="stylesheet" href="./CSS/HomePage.css" />
     <link rel="stylesheet" href="./CSS/lsb.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/ab2155e76b.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
     <title>Hệ Thống Giao Thông Buýt TP.HCM</title>
 </head>
 <style>
+    body{
+        color: #5bc0de;
+        font-family: "Poppins", sans-serif;
+    }
     #map{
         position: absolute;
         width: 50%;
         height: 50%;
         background-color: green;
         margin: 074px;
+    }
+    .jumbotron {
+        background-color: transparent;
+        margin: 0;
+        padding: 10px;
+    }
+    .jumbotron h1 {
+        font-size: 2em;
+        font-weight: bold;
+    }
+    .jumbotron h1,
+    .jumbotron p {
+        text-align: center;
+    }
+    .jumbotron p {
+        font-size: 2em;
     }
 </style>
 <body>
@@ -42,116 +66,136 @@
         </li>
     </ul>
 </header>
-<div>Vị trí hiện tại: <span id="currentPosition"></span></div>
-<div>
-    <select onchange="searchMap(this.value)">
-        <option value="">Chọn địa điểm</option>
-        <option value="cafe">Quán cafe</option>
-        <option value="food">Quán ăn</option>
-        <option value="hospital">Bệnh viện</option>
-        <option value="bank">Ngân hàng</option>
-        <option value="atm">Cây ATM</option>
-        <option value="bus_station">Trạm xe buýt</option>
-        <option value="museum">Bảo tàng</option>
-        <option value="park">Công viên</option>
-        <option value="parking">Chỗ đỗ xe</option>
-    </select>
+<div class="jumbotron">
+    <div class="container-fluid">
+        <h1>Tìm Đường Giữa 2 Địa Điểm</h1>
+        <p>Tính Toán Đường Đi</p>
+        <form class ="frm-horizontal">
+            <div class="form-group">
+                <label for="from" class="col-xs-2 control label"><i class ="far fa-dot-circle" ></i>
+                </label>
+                <div class="col-xs-4">
+                    <input type="text" id="from" placeholder="Origin" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="to" class="col-xs-2 control label"><i class ="fas fa-map-marker-alt" ></i>
+                </label>
+                <div class="col-xs-4">
+                    <input type="text" id="to" placeholder="Destination" class="form-control">
+                </div>
+            </div>
+        </form>
+        <div class="col-xs-offset-2 col-xs-10">
+            <button class="btn btn-info btn-lg"> <i class="fas fa-directions"></i></button>
+        </div>
+        <div class="container-fluid">
+            <div id="googleMap">
+
+            </div>
+            <div id="outPut">
+
+            </div>
+        </div>
+    </div>
 </div>
 <div id="map"></div>
-<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly" defer > </script>
-<script type="text/javascript">
-    var bando;
-    var lat = 0;
-    var long = 0;
-    function initMap() {
-        infowindow = new google.maps.InfoWindow();
-        window.navigator.geolocation.getCurrentPosition(function (pos) {
-            lat = parseFloat(pos.coords.latitude);
-            long = parseFloat(pos.coords.longitude);
-           //       $('#currentPosition').text(lat + ',' + long);
-            bando = new google.maps.Map(document.getElementById('map'),{
-                //Lấy tâm bản đồ tại toạ độ hiện tại
-                center: {lat:lat, lng:long},
-                zoom:15
-            });
-            // Tạo 1 điểm chấm trên bản đồ
-            var cp = new google.maps.Marker({
-                position: {lat:lat, lng:long},
-                map: bando
-            });
-        });
-    }
-    function searchMap(loaidiadiem) {
-        if (!loaidiadiem || loaidiadiem == '')
-            return;
-        var request = {
-            location: {
-                lat: lat,
-                lng: long
-            }, //Toạ độ bắt đầu tìm kiếm
-            radius: '1000', // ~ tìm kiếm phạm vi 1000m
-            type: loaidiadiem
-        };
-        var service = new google.maps.places.PlacesService(bando);
-        service.nearbySearch(request, showPlaces); //khi có dữ liệu tìm kiếm trả về thì gọi đến function showPlaces
-    }
-    var arrMarkers = []
-    var infowindow;
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places" defer > </script>
+<script href="js/route.js"></script>
+<!--<script type="text/javascript" src="route.js" ></script>-->
+<!--<script type="text/javascript">-->
+<!--    var bando;-->
+<!--    var lat = 0;-->
+<!--    var long = 0;-->
+<!--    function initMap() {-->
+<!--        infowindow = new google.maps.InfoWindow();-->
+<!--        window.navigator.geolocation.getCurrentPosition(function (pos) {-->
+<!--            lat = parseFloat(pos.coords.latitude);-->
+<!--            long = parseFloat(pos.coords.longitude);-->
+<!--           //       $('#currentPosition').text(lat + ',' + long);-->
+<!--            bando = new google.maps.Map(document.getElementById('map'),{-->
+<!--                //Lấy tâm bản đồ tại toạ độ hiện tại-->
+<!--                center: {lat:lat, lng:long},-->
+<!--                zoom:15-->
+<!--            });-->
+<!--            // Tạo 1 điểm chấm trên bản đồ-->
+<!--            var cp = new google.maps.Marker({-->
+<!--                position: {lat:lat, lng:long},-->
+<!--                map: bando-->
+<!--            });-->
+<!--        });-->
+<!--    }-->
+<!--    function searchMap(loaidiadiem) {-->
+<!--        if (!loaidiadiem || loaidiadiem == '')-->
+<!--            return;-->
+<!--        var request = {-->
+<!--            location: {-->
+<!--                lat: lat,-->
+<!--                lng: long-->
+<!--            }, //Toạ độ bắt đầu tìm kiếm-->
+<!--            radius: '1000', // ~ tìm kiếm phạm vi 1000m-->
+<!--            type: loaidiadiem-->
+<!--        };-->
+<!--        var service = new google.maps.places.PlacesService(bando);-->
+<!--        service.nearbySearch(request, showPlaces); //khi có dữ liệu tìm kiếm trả về thì gọi đến function showPlaces-->
+<!--    }-->
+<!--    var arrMarkers = []-->
+<!--    var infowindow;-->
 
-    function showPlaces(result, status) {
-        if (status === google.maps.places.PlacesServiceStatus.OK && result && result.length > 0) {
-            //Khi có danh sách địa điểm mới -> xoá điểm cũ đi
-            for (i in arrMarkers)
-                arrMarkers[i].setMap(null);
-            arrMarkers = [];
-            //Tạo các marker (điểm) đánh dấu các vị trí tìm được
-            for (i in result) {
-                var place = result[i];
-                var image = {
-                    url: place.icon,
-                    size: new google.maps.Size(71, 71),
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(17, 34),
-                    scaledSize: new google.maps.Size(25, 25)
-                };
-                console.log(place);
-                var marker = new google.maps.Marker({
-                    map: bando,
-                    icon: image,
-                    title: place.name,
-                    content: "<strong>" + place.name + "</strong><br />" + place.vicinity,
-                    position: place.geometry.location,
-                    data: place
-                });
-                google.maps.event.addEventListener(marker, 'click', function() {
-                    infowindow.setContent(this.content)
-                    infowindow.open(bando, this);
-                    TimDuong(this.data);
-                });
-                arrMarkers.push(marker);
-            }
-        }
-    }
-    var ddisplay;
-    function TimDuong(place) {
-        var dservice = new google.maps.DirectionsService();
-        if (ddisplay)
-            ddisplay.setMap(null);
-        ddisplay = new google.maps.DirectionsRenderer();
-        ddisplay.setMap(bando);
-        var request = {
-            origin: {
-                lat: lat,
-                lng: long
-            },
-            destination: place.geometry.location,
-            travelMode: 'WALKING',
-            provideRouteAlternatives: true
-        };
-        dservice.route(request, function(result, status) {
-            if (status === "OK") ddisplay.setDirections(result);
-        });
-    }
-</script>
+<!--    function showPlaces(result, status) {-->
+<!--        if (status === google.maps.places.PlacesServiceStatus.OK && result && result.length > 0) {-->
+<!--            //Khi có danh sách địa điểm mới -> xoá điểm cũ đi-->
+<!--            for (i in arrMarkers)-->
+<!--                arrMarkers[i].setMap(null);-->
+<!--            arrMarkers = [];-->
+<!--            //Tạo các marker (điểm) đánh dấu các vị trí tìm được-->
+<!--            for (i in result) {-->
+<!--                var place = result[i];-->
+<!--                var image = {-->
+<!--                    url: place.icon,-->
+<!--                    size: new google.maps.Size(71, 71),-->
+<!--                    origin: new google.maps.Point(0, 0),-->
+<!--                    anchor: new google.maps.Point(17, 34),-->
+<!--                    scaledSize: new google.maps.Size(25, 25)-->
+<!--                };-->
+<!--                console.log(place);-->
+<!--                var marker = new google.maps.Marker({-->
+<!--                    map: bando,-->
+<!--                    icon: image,-->
+<!--                    title: place.name,-->
+<!--                    content: "<strong>" + place.name + "</strong><br />" + place.vicinity,-->
+<!--                    position: place.geometry.location,-->
+<!--                    data: place-->
+<!--                });-->
+<!--                google.maps.event.addEventListener(marker, 'click', function() {-->
+<!--                    infowindow.setContent(this.content)-->
+<!--                    infowindow.open(bando, this);-->
+<!--                    TimDuong(this.data);-->
+<!--                });-->
+<!--                arrMarkers.push(marker);-->
+<!--            }-->
+<!--        }-->
+<!--    }-->
+<!--    var ddisplay;-->
+<!--    function TimDuong(place) {-->
+<!--        var dservice = new google.maps.DirectionsService();-->
+<!--        if (ddisplay)-->
+<!--            ddisplay.setMap(null);-->
+<!--        ddisplay = new google.maps.DirectionsRenderer();-->
+<!--        ddisplay.setMap(bando);-->
+<!--        var request = {-->
+<!--            origin: {-->
+<!--                lat: lat,-->
+<!--                lng: long-->
+<!--            },-->
+<!--            destination: place.geometry.location,-->
+<!--            travelMode: 'WALKING',-->
+<!--            provideRouteAlternatives: true-->
+<!--        };-->
+<!--        dservice.route(request, function(result, status) {-->
+<!--            if (status === "OK") ddisplay.setDirections(result);-->
+<!--        });-->
+<!--    }-->
+<!--</script>-->
 </body>
 </html>
