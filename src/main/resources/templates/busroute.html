@@ -303,6 +303,90 @@
         document.getElementById("mode").addEventListener("change", () => {
             calculateAndDisplayRoute(directionsService, directionsRenderer);
         });
+        var save = document.getElementById("route");
+        save.addEventListener("change",() =>{
+            if (save.value === 'route1')
+            {
+                routeBus(directionsService, directionsRenderer)
+            }
+            else if (save.value === 'route2') {
+                routeBus2(directionsService, directionsRenderer)
+            }
+            else if (save.value === 'route3') {
+                routeBus3(directionsService, directionsRenderer)
+            }
+            else if (save.value === 'route4') {
+                routeBus4(directionsService, directionsRenderer)
+            }
+            else {
+                routeBus5(directionsService, directionsRenderer)
+            }
+            console.log(save.value);
+        });
+        function  routeBus (directionsService, directionsRenderer) {
+            const selectedRoute = document.getElementById("route").value;
+            directionsService
+                .route({
+                    origin: {lat: 10.820709934259, lng: 106.69500475864}, //Phạm Văn Đồng
+                    destination: {lat: 10.8910087, lng: 106.7720994},
+                    travelMode: "TRANSIT",
+                })
+                .then((response) => {
+                    directionsRenderer.setDirections(response);
+                })
+        }
+        function  routeBus2 (directionsService, directionsRenderer) {
+            const selectRoute = document.getElementById("route").value;
+            directionsService
+                .route ({
+                    origin: {lat: 10.8356277, lng: 106.6564544}, // Chợ Hạnh Thông Tây
+                    destination: {lat:  10.8555748, lng: 106.780618}, // HUTECH Khu E
+                    travelMode: "TRANSIT",
+                })
+                .then((response) => {
+                    directionsRenderer.setDirections(response);
+                })
+
+        }
+        function  routeBus3 (directionsService, directionsRenderer) {
+            const selectRoute = document.getElementById("route").value;
+            directionsService
+                .route ({
+                    origin: {lat: 10.860922, lng: 106.748688}, // HCMC National University Dormitory - Zone B
+                    destination: {lat: 10.8018552, lng: 106.7107343}, // HUTECH AB
+                    travelMode: "TRANSIT",
+                })
+                .then((response) => {
+                    directionsRenderer.setDirections(response);
+                })
+
+        }
+        function  routeBus4 (directionsService, directionsRenderer) {
+            const selectRoute = document.getElementById("route").value;
+            directionsService
+                .route ({
+                    origin: {lat: 10.8017279, lng: 106.710007}, // Khu R
+                    destination: {lat: 10.8408081, lng: 106.8067438}, // KHU AB
+                    travelMode: "TRANSIT",
+                })
+                .then((response) => {
+                    directionsRenderer.setDirections(response);
+                })
+
+        }
+        function  routeBus5 (directionsService, directionsRenderer) {
+            const selectRoute = document.getElementById("route").value;
+            directionsService
+                .route ({
+                    origin: {lat: 10.8393457, lng: 106.7312163}, //8/12K
+                    destination: {lat:  10.7875434, lng: 106.7031019}, // Thảo cầm viên
+                    travelMode: "TRANSIT",
+                })
+                .then((response) => {
+                    directionsRenderer.setDirections(response);
+                })
+        }
+
     }
 
     function calculateAndDisplayRoute(directionsService, directionsRenderer) {
@@ -311,9 +395,6 @@
             .route({
                 origin: document.getElementById("from").value,
                 destination: document.getElementById("to").value,
-                // Note that Javascript allows us to access the constant
-                // using square brackets and a string value as its
-                // "property."
                 travelMode: google.maps.TravelMode[selectedMode],
             })
             .then((response) => {
@@ -321,7 +402,6 @@
             })
             .catch((e) => window.alert("Directions request failed due to " + status));
     }
-
 </script>
 
 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
