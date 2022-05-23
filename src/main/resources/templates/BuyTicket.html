@@ -1,5 +1,8 @@
+
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -11,12 +14,91 @@
 
     <!-- FONT  -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather:300|Oswald" rel="stylesheet"/>
     <!-- LIGHTBOX MASTER -->
     <link rel="stylesheet" href="./CSS/lsb.css">
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="./CSS/HomePage.css" />
 
     <title>BusMap</title>
+    <style>
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+
+
+        /*.disabled {*/
+        /*    opacity: 0.6;*/
+        /*    cursor: not-allowed;*/
+        /*}*/
+        #booking-form {
+            font-family: 'Merriweather', serif;
+            max-width: 540px;
+            margin: 40px auto;
+        }
+        #booking-form ul {
+            padding-left: 0;
+        }
+        #booking-form li {
+            list-style: none;
+        }
+        #booking-form input,
+        #booking-form textarea,
+        #booking-form select {
+            font-size: 18px;
+            padding: 0 28px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid rgb(233,233,233);
+            text-align: left;
+            border-radius: 35px;
+            color: #000000;
+
+            letter-spacing: normal;
+            height: 50px;
+            line-height: 50px;
+            font-family: 'Merriweather', serif;
+            background: #fff;
+            margin-bottom: 20px;
+        }
+        #booking-form select {
+            background: url('https://seashineadventures.com/wp-content/uploads/2017/08/grey-chevron.png') no-repeat;
+            -webkit-appearance: none;
+            appearance: none;
+            background-size: 15px;
+            background-position: 97% 50%;
+
+        }
+        #booking-form textarea {
+            height: 120px;
+            line-height: 1.5;
+            padding: 15px 28px;
+        }
+        #booking-form input:focus,
+        #booking-form textarea:focus,
+        #booking-form select:focus {
+            outline: 0;
+            border: 1px solid rgb(211,211,211);
+        }
+        #booking-form label {
+            font-size: 18px;
+            font-weight: 300;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+
+
+    </style>
 </head>
 <body>
     <header>
@@ -53,17 +135,111 @@
                 Mua Vé để tiến hành bước thanh toán, sau khi thanh toán xong thì có một mã CODE QR đươc gửi về mail
                 Sau đó dùng mã qr này để quét khi lên bus.
             </p>
-            <p>
-                Loại Vé:
-            </p>
-            <button type="button" >Sinh Viên</button>   <button type="button" >Người Lớn</button>
-            <p>Thời Hạn</p>
+            <form action="#" id="booking-form">
+            <div class="tab-pane">
+                <ul>
+                    <li>
+                        <label>Bạn có phải là người dùng lâu năm?</label>
+                        <div class="errorTxt"></div>
+                        <input type="text" class="datepicker" name="bf_date">
+                    </li>
+                    <li>
+                        <label>Bạn là Thuộc Đối Tượng Nào</label>
+                        <div class="errorTxt"></div>
+                        <select name="bf_time">
+                            <option value="">Select</option>
+                            <option value="student">Sinh Viên, Học Sinh</option>
+                            <option value="notstudent">Không phải sinh viên, học sinh</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label>Bạn muốn sử dụng trong mấy tháng</label>
+                        <div class="errorTxt"></div>
+                        <select name="bf_hours">
+                            <option value="">Select</option>
+                            <option value="30">1 Tháng</option>
+                            <option value="90">3 Tháng</option>
+                            <option value="180">6 Tháng</option>
+                            <option value="365">1 Năm</option>
+                        </select>
+                    </li>
+                </u>
+                </ul>
+                </div>
+            </form>
+<!--            <p>-->
+<!--                Loại Vé:-->
+<!--            </p>-->
+<!--            <button class="button" id="student" >Sinh Viên</button>   <button class="button"  id="people">Người Lớn</button>-->
+<!--            <p>Thời Hạn</p>-->
+<!--            <button class="button"  >1 Tháng</button><button class="button" >3 Tháng</button><button class="button" >6 Tháng</button><button class="button" >1 Năm</button>-->
 
-            <button type="button" >1 Tháng</button><button type="button" >3 Tháng</button><button type="button" >6 Tháng</button><button type="button" >1 Năm</button>
             <form method="get" action="/Payment">
                 <button type="submit" class="snip1582 snip1582-primary">Mua Vé</button>
             </form>
         </div>
+        </div>
+        </div>
     </section>
 </body>
+<script type="text/javascript">
+
+
+    $('.button').click(function(){
+        var $btn = $(this),
+            $step = $btn.parents('.modal-body'),
+            stepIndex = $step.index(),
+            $pag = $('.modal-header span').eq(stepIndex);
+
+        if(stepIndex === 0 || stepIndex === 1) { step1($step, $pag); }
+        else { step3($step, $pag); }
+
+    });
+
+    function step1($step, $pag){
+        console.log('step1');
+        // animate the step out
+        $step.addClass('animate-out');
+
+        // animate the step in
+        setTimeout(function(){
+            $step.removeClass('animate-out is-showing')
+                .next().addClass('animate-in');
+            $pag.removeClass('is-active')
+                .next().addClass('is-active');
+        }, 600);
+
+        // after the animation, adjust the classes
+        setTimeout(function(){
+            $step.next().removeClass('animate-in')
+                .addClass('is-showing');
+
+        }, 1200);
+    }
+
+
+    function step3($step, $pag){
+        console.log('3');
+
+        // animate the step out
+        $step.parents('.modal-wrap').addClass('animate-up');
+
+        setTimeout(function(){
+            $('.rerun-button').css('display', 'inline-block');
+        }, 300);
+    }
+
+    $('.rerun-button').click(function(){
+        $('.modal-wrap').removeClass('animate-up')
+            .find('.modal-body')
+            .first().addClass('is-showing')
+            .siblings().removeClass('is-showing');
+
+        $('.modal-header span').first().addClass('is-active')
+            .siblings().removeClass('is-active');
+        $(this).hide();
+    });
+
+
+</script>
 </html>

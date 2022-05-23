@@ -1,210 +1,8 @@
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1" />-->
-<!--&lt;!&ndash;    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>&ndash;&gt;-->
-<!--    <link rel="stylesheet" th:href="@{./CSS/HomePage.css}" />-->
-<!--    <link rel="stylesheet" th:href="@{./CSS/lsb.css}">-->
-<!--    <link rel="preconnect" href="https://fonts.gstatic.com">-->
-<!--    <script src="https://kit.fontawesome.com/ab2155e76b.js" crossorigin="anonymous"></script>-->
-<!--    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">-->
 
-<!--    <title>Hệ Thống Giao Thông Buýt TP.HCM</title>-->
-<!--</head>-->
-<!--<style>-->
-<!--    body{-->
-<!--        color: #5bc0de;-->
-<!--        font-family: "Poppins", sans-serif;-->
-<!--    }-->
-<!--    #map{-->
-<!--        position: absolute;-->
-<!--        width: 50%;-->
-<!--        height: 50%;-->
-<!--        background-color: green;-->
-<!--        margin: 074px;-->
-<!--    }-->
-<!--    .jumbotron {-->
-<!--        background-color: transparent;-->
-<!--        margin: 0;-->
-<!--        padding: 10px;-->
-<!--    }-->
-<!--    .jumbotron h1 {-->
-<!--        font-size: 2em;-->
-<!--        font-weight: bold;-->
-<!--    }-->
-<!--    .jumbotron h1,-->
-<!--    .jumbotron p {-->
-<!--        text-align: center;-->
-<!--    }-->
-<!--    .jumbotron p {-->
-<!--        font-size: 2em;-->
-<!--    }-->
-<!--</style>-->
-<!--<body>-->
-<!--<script src="../static/js/jquery-3.2.1.min.js"></script>-->
-<!--<header>-->
-<!--    <h2> <a th:href="@{/HomePage}" style="text-decoration: none">Bus<span>Map</span></a></h2>-->
-<!--    <ul class="header__list" id="mainNav">-->
-<!--        <li class="header__items">-->
-<!--            <a th:href="@{/HomePage#home}" class="header__link active">TRANG CHỦ</a>-->
-<!--        </li>-->
-<!--        <li class="header__items">-->
-<!--            <a th:href="@{/HomePage#about}" class="header__link">VỀ CHÚNG TÔI</a>-->
-<!--        </li>-->
-<!--        <li class="header__items">-->
-<!--            <a th:href="@{/HomePage#blog}" class="header__link">BLOG</a>-->
-<!--        </li>-->
-<!--        <li class="header__items">-->
-<!--            <a th:href="@{/HomePage#agents}" class="header__link">LIÊN HỆ</a>-->
-<!--        </li>-->
-<!--        <li class="header__items">-->
-<!--            <a th:href="@{/BuyTicket}" class="header__link">MUA VÉ</a>-->
-<!--        </li>-->
-<!--        <li class="header__items">-->
-<!--            <a th:href="@{/busroute}" class="header__link">TUYẾN XE</a>-->
-<!--        </li>-->
-<!--    </ul>-->
-<!--</header>-->
-<!--<div class="jumbotron">-->
-<!--    <div class="container-fluid">-->
-<!--        <h1>Tìm Đường Giữa 2 Địa Điểm</h1>-->
-<!--        <p>Tính Toán Đường Đi</p>-->
-<!--        <form class ="frm-horizontal">-->
-<!--            <div class="form-group">-->
-<!--                <label for="from" class="col-xs-2 control label"><i class ="far fa-dot-circle" ></i>-->
-<!--                </label>-->
-<!--                <div class="col-xs-4">-->
-<!--                    <input type="text" id="from" placeholder="Origin" class="form-control">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="form-group">-->
-<!--                <label for="to" class="col-xs-2 control label"><i class ="fas fa-map-marker-alt" ></i>-->
-<!--                </label>-->
-<!--                <div class="col-xs-4">-->
-<!--                    <input type="text" id="to" placeholder="Destination" class="form-control">-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </form>-->
-<!--        <div class="col-xs-offset-2 col-xs-10">-->
-<!--            <button class="btn btn-info btn-lg"> <i class="fas fa-directions"></i></button>-->
-<!--        </div>-->
-<!--        <div class="container-fluid">-->
-<!--            <div id="googleMap">-->
-
-<!--            </div>-->
-<!--            <div id="outPut">-->
-
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<div id="map"></div>-->
-<!--<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places" defer ></script>-->
-<!--&lt;!&ndash;<script src="js/route.js"></script>&ndash;&gt;-->
-<!--<script src="../static/js/route.js"></script>-->
-
-<!--&lt;!&ndash;<script type="text/javascript" src="route.js" ></script>&ndash;&gt;-->
-<!--&lt;!&ndash;<script type="text/javascript">&ndash;&gt;-->
-<!--&lt;!&ndash;    var bando;&ndash;&gt;-->
-<!--&lt;!&ndash;    var lat = 0;&ndash;&gt;-->
-<!--&lt;!&ndash;    var long = 0;&ndash;&gt;-->
-<!--&lt;!&ndash;    function initMap() {&ndash;&gt;-->
-<!--&lt;!&ndash;        infowindow = new google.maps.InfoWindow();&ndash;&gt;-->
-<!--&lt;!&ndash;        window.navigator.geolocation.getCurrentPosition(function (pos) {&ndash;&gt;-->
-<!--&lt;!&ndash;            lat = parseFloat(pos.coords.latitude);&ndash;&gt;-->
-<!--&lt;!&ndash;            long = parseFloat(pos.coords.longitude);&ndash;&gt;-->
-<!--&lt;!&ndash;           //       $('#currentPosition').text(lat + ',' + long);&ndash;&gt;-->
-<!--&lt;!&ndash;            bando = new google.maps.Map(document.getElementById('map'),{&ndash;&gt;-->
-<!--&lt;!&ndash;                //Lấy tâm bản đồ tại toạ độ hiện tại&ndash;&gt;-->
-<!--&lt;!&ndash;                center: {lat:lat, lng:long},&ndash;&gt;-->
-<!--&lt;!&ndash;                zoom:15&ndash;&gt;-->
-<!--&lt;!&ndash;            });&ndash;&gt;-->
-<!--&lt;!&ndash;            // Tạo 1 điểm chấm trên bản đồ&ndash;&gt;-->
-<!--&lt;!&ndash;            var cp = new google.maps.Marker({&ndash;&gt;-->
-<!--&lt;!&ndash;                position: {lat:lat, lng:long},&ndash;&gt;-->
-<!--&lt;!&ndash;                map: bando&ndash;&gt;-->
-<!--&lt;!&ndash;            });&ndash;&gt;-->
-<!--&lt;!&ndash;        });&ndash;&gt;-->
-<!--&lt;!&ndash;    }&ndash;&gt;-->
-<!--&lt;!&ndash;    function searchMap(loaidiadiem) {&ndash;&gt;-->
-<!--&lt;!&ndash;        if (!loaidiadiem || loaidiadiem == '')&ndash;&gt;-->
-<!--&lt;!&ndash;            return;&ndash;&gt;-->
-<!--&lt;!&ndash;        var request = {&ndash;&gt;-->
-<!--&lt;!&ndash;            location: {&ndash;&gt;-->
-<!--&lt;!&ndash;                lat: lat,&ndash;&gt;-->
-<!--&lt;!&ndash;                lng: long&ndash;&gt;-->
-<!--&lt;!&ndash;            }, //Toạ độ bắt đầu tìm kiếm&ndash;&gt;-->
-<!--&lt;!&ndash;            radius: '1000', // ~ tìm kiếm phạm vi 1000m&ndash;&gt;-->
-<!--&lt;!&ndash;            type: loaidiadiem&ndash;&gt;-->
-<!--&lt;!&ndash;        };&ndash;&gt;-->
-<!--&lt;!&ndash;        var service = new google.maps.places.PlacesService(bando);&ndash;&gt;-->
-<!--&lt;!&ndash;        service.nearbySearch(request, showPlaces); //khi có dữ liệu tìm kiếm trả về thì gọi đến function showPlaces&ndash;&gt;-->
-<!--&lt;!&ndash;    }&ndash;&gt;-->
-<!--&lt;!&ndash;    var arrMarkers = []&ndash;&gt;-->
-<!--&lt;!&ndash;    var infowindow;&ndash;&gt;-->
-
-<!--&lt;!&ndash;    function showPlaces(result, status) {&ndash;&gt;-->
-<!--&lt;!&ndash;        if (status === google.maps.places.PlacesServiceStatus.OK && result && result.length > 0) {&ndash;&gt;-->
-<!--&lt;!&ndash;            //Khi có danh sách địa điểm mới -> xoá điểm cũ đi&ndash;&gt;-->
-<!--&lt;!&ndash;            for (i in arrMarkers)&ndash;&gt;-->
-<!--&lt;!&ndash;                arrMarkers[i].setMap(null);&ndash;&gt;-->
-<!--&lt;!&ndash;            arrMarkers = [];&ndash;&gt;-->
-<!--&lt;!&ndash;            //Tạo các marker (điểm) đánh dấu các vị trí tìm được&ndash;&gt;-->
-<!--&lt;!&ndash;            for (i in result) {&ndash;&gt;-->
-<!--&lt;!&ndash;                var place = result[i];&ndash;&gt;-->
-<!--&lt;!&ndash;                var image = {&ndash;&gt;-->
-<!--&lt;!&ndash;                    url: place.icon,&ndash;&gt;-->
-<!--&lt;!&ndash;                    size: new google.maps.Size(71, 71),&ndash;&gt;-->
-<!--&lt;!&ndash;                    origin: new google.maps.Point(0, 0),&ndash;&gt;-->
-<!--&lt;!&ndash;                    anchor: new google.maps.Point(17, 34),&ndash;&gt;-->
-<!--&lt;!&ndash;                    scaledSize: new google.maps.Size(25, 25)&ndash;&gt;-->
-<!--&lt;!&ndash;                };&ndash;&gt;-->
-<!--&lt;!&ndash;                console.log(place);&ndash;&gt;-->
-<!--&lt;!&ndash;                var marker = new google.maps.Marker({&ndash;&gt;-->
-<!--&lt;!&ndash;                    map: bando,&ndash;&gt;-->
-<!--&lt;!&ndash;                    icon: image,&ndash;&gt;-->
-<!--&lt;!&ndash;                    title: place.name,&ndash;&gt;-->
-<!--&lt;!&ndash;                    content: "<strong>" + place.name + "</strong><br />" + place.vicinity,&ndash;&gt;-->
-<!--&lt;!&ndash;                    position: place.geometry.location,&ndash;&gt;-->
-<!--&lt;!&ndash;                    data: place&ndash;&gt;-->
-<!--&lt;!&ndash;                });&ndash;&gt;-->
-<!--&lt;!&ndash;                google.maps.event.addEventListener(marker, 'click', function() {&ndash;&gt;-->
-<!--&lt;!&ndash;                    infowindow.setContent(this.content)&ndash;&gt;-->
-<!--&lt;!&ndash;                    infowindow.open(bando, this);&ndash;&gt;-->
-<!--&lt;!&ndash;                    TimDuong(this.data);&ndash;&gt;-->
-<!--&lt;!&ndash;                });&ndash;&gt;-->
-<!--&lt;!&ndash;                arrMarkers.push(marker);&ndash;&gt;-->
-<!--&lt;!&ndash;            }&ndash;&gt;-->
-<!--&lt;!&ndash;        }&ndash;&gt;-->
-<!--&lt;!&ndash;    }&ndash;&gt;-->
-<!--&lt;!&ndash;    var ddisplay;&ndash;&gt;-->
-<!--&lt;!&ndash;    function TimDuong(place) {&ndash;&gt;-->
-<!--&lt;!&ndash;        var dservice = new google.maps.DirectionsService();&ndash;&gt;-->
-<!--&lt;!&ndash;        if (ddisplay)&ndash;&gt;-->
-<!--&lt;!&ndash;            ddisplay.setMap(null);&ndash;&gt;-->
-<!--&lt;!&ndash;        ddisplay = new google.maps.DirectionsRenderer();&ndash;&gt;-->
-<!--&lt;!&ndash;        ddisplay.setMap(bando);&ndash;&gt;-->
-<!--&lt;!&ndash;        var request = {&ndash;&gt;-->
-<!--&lt;!&ndash;            origin: {&ndash;&gt;-->
-<!--&lt;!&ndash;                lat: lat,&ndash;&gt;-->
-<!--&lt;!&ndash;                lng: long&ndash;&gt;-->
-<!--&lt;!&ndash;            },&ndash;&gt;-->
-<!--&lt;!&ndash;            destination: place.geometry.location,&ndash;&gt;-->
-<!--&lt;!&ndash;            travelMode: 'WALKING',&ndash;&gt;-->
-<!--&lt;!&ndash;            provideRouteAlternatives: true&ndash;&gt;-->
-<!--&lt;!&ndash;        };&ndash;&gt;-->
-<!--&lt;!&ndash;        dservice.route(request, function(result, status) {&ndash;&gt;-->
-<!--&lt;!&ndash;            if (status === "OK") ddisplay.setDirections(result);&ndash;&gt;-->
-<!--&lt;!&ndash;        });&ndash;&gt;-->
-<!--&lt;!&ndash;    }&ndash;&gt;-->
-<!--&lt;!&ndash;</script>&ndash;&gt;-->
-<!--</body>-->
-<!--</html>-->
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Travel Modes in Directions</title>
+    <title>Travel Modes </title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 
     <script src="../static/js/route.js"></script>
@@ -213,19 +11,20 @@
 <style>
     #map {
         height: 100%;
+        margin-bottom: 75px;
     }
 
-    /* Optional: Makes the sample page fill the window. */
     html,
     body {
         height: 100%;
-        margin: 0;
-        padding: 0;
-    }
 
+        padding: 0;
+
+    }
     #floating-panel {
+
         position: absolute;
-        top: 10px;
+        top: 75px;
         left: 25%;
         z-index: 5;
         background-color: #fff;
@@ -237,8 +36,9 @@
         padding-left: 10px;
     }
     #busroute{
+
         position: absolute;
-        top: 10px;
+        top: 75px;
         /*left: 5%;*/
         right: 48.5%;
         z-index: 5;
@@ -251,8 +51,32 @@
         padding-left: 10px;
     }
 </style>
+<link rel="stylesheet" href="./CSS/lsb.css">
+<link rel="stylesheet" href="./CSS/HomePage.css" />
 <body>
-
+<header>
+    <h2> <a th:href="@{/HomePage}" style="text-decoration: none">Bus<span>Map</span></a></h2>
+    <ul class="header__list" id="mainNav">
+        <li class="header__items">
+            <a th:href="@{/HomePage#home}" class="header__link active">TRANG CHỦ</a>
+        </li>
+        <li class="header__items">
+            <a th:href="@{/HomePage#about}" class="header__link">VỀ CHÚNG TÔI</a>
+        </li>
+        <li class="header__items">
+            <a th:href="@{/HomePage#blog}" class="header__link">BLOG</a>
+        </li>
+        <li class="header__items">
+            <a th:href="@{/HomePage#agents}" class="header__link">LIÊN HỆ</a>
+        </li>
+        <li class="header__items">
+            <a th:href="@{/BuyTicket}" class="header__link">MUA VÉ</a>
+        </li>
+        <li class="header__items">
+            <a th:href="@{/busroute}" class="header__link">TUYẾN XE</a>
+        </li>
+    </ul>
+</header>
 <div id="floating-panel">
     <form class="form-horizontal">
         <div class="form-group">
@@ -282,6 +106,17 @@
     <form class="routebus"></form>
     <b>Các Tuyến Bus</b>
     <select id="route">
+        <option value="route1">Tuyến 1</option>
+        <option value="route2">Tuyến 2</option>
+        <option value="route3">Tuyến 3</option>
+        <option value="route4">Tuyến 4</option>
+        <option value="route5">Tuyến 5</option>
+    </select>
+</div>
+<div id="busroute-1">
+    <form class="routebus"></form>
+    <b>Các Tuyến Bus</b>
+    <select id="route-1">
         <option value="route1">Tuyến 1</option>
         <option value="route2">Tuyến 2</option>
         <option value="route3">Tuyến 3</option>
@@ -402,6 +237,62 @@
             })
             .catch((e) => window.alert("Directions request failed due to " + status));
     }
+
+    // function searchMap(loaidiadiem) {
+    //     if (!loaidiadiem || loaidiadiem == '')
+    //         return;
+    //     var request = {
+    //         location: {
+    //             lat: lati,
+    //             lng: longi
+    //         },
+    //         radius: '10000',
+    //         type: loaidiadiem
+    //     };
+    //     var service = new google.maps.places.PlacesService(bando);
+    //     service.nearbySearch(request, showPlaces);
+    // }
+    // function TimDuong(place) {
+    //     var dservice = new google.maps.DirectionsService();
+    //     if (ddisplay)
+    //         ddisplay.setMap(null);
+    //     ddisplay = new google.maps.DirectionsRenderer();
+    //     ddisplay.setMap(bando);
+    //     var request = {
+    //         origin: {
+    //             lat: lati,
+    //             lng: longi
+    //         },
+    //         destination: place.geometry.location,
+    //         travelMode: 'WALKING',
+    //         provideRouteAlternatives: true
+    //     };
+    //     dservice.route(request, function(result, status) {
+    //         if (status == "OK") ddisplay.setDirections(result);
+    //     });
+    // }
+
+    // function showMap() {
+    //     window.navigator.geolocation.getCurrentPosition(function(pos) {
+    //         lati = parseFloat(pos.coords.latitude);
+    //         longi = parseFloat(pos.coords.longitude);
+    //         bando = new google.maps.Map(document.getElementById('map'), {
+    //             center: {
+    //                 lat: lati,
+    //                 lng: longi
+    //             },
+    //             zoom: 15
+    //         });
+    //         var diemtrungtam = new google.maps.Marker({
+    //             position: {
+    //                 lat: lati,
+    //                 lng: longi
+    //             },
+    //             map: bando
+    //         }); // Tạo 1 điểm chấm trên bản đồ
+    //     });
+    //
+    // }
 </script>
 
 <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
