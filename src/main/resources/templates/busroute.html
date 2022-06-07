@@ -1,3 +1,108 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1" />-->
+<!--&lt;!&ndash;    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>&ndash;&gt;-->
+<!--    <link rel="stylesheet" th:href="@{./CSS/HomePage.css}" />-->
+<!--    <link rel="stylesheet" th:href="@{./CSS/lsb.css}">-->
+<!--    <link rel="preconnect" href="https://fonts.gstatic.com">-->
+<!--    <script src="https://kit.fontawesome.com/ab2155e76b.js" crossorigin="anonymous"></script>-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">-->
+
+<!--    <title>Hệ Thống Giao Thông Buýt TP.HCM</title>-->
+<!--</head>-->
+<!--<style>-->
+<!--    body{-->
+<!--        color: #5bc0de;-->
+<!--        font-family: "Poppins", sans-serif;-->
+<!--    }-->
+<!--    #map{-->
+<!--        position: absolute;-->
+<!--        width: 50%;-->
+<!--        height: 50%;-->
+<!--        background-color: green;-->
+<!--        margin: 074px;-->
+<!--    }-->
+<!--    .jumbotron {-->
+<!--        background-color: transparent;-->
+<!--        margin: 0;-->
+<!--        padding: 10px;-->
+<!--    }-->
+<!--    .jumbotron h1 {-->
+<!--        font-size: 2em;-->
+<!--        font-weight: bold;-->
+<!--    }-->
+<!--    .jumbotron h1,-->
+<!--    .jumbotron p {-->
+<!--        text-align: center;-->
+<!--    }-->
+<!--    .jumbotron p {-->
+<!--        font-size: 2em;-->
+<!--    }-->
+<!--</style>-->
+<!--<body>-->
+<!--<script src="../static/js/jquery-3.2.1.min.js"></script>-->
+<!--<header>-->
+<!--    <h2> <a th:href="@{/HomePage}" style="text-decoration: none">Bus<span>Map</span></a></h2>-->
+<!--    <ul class="header__list" id="mainNav">-->
+<!--        <li class="header__items">-->
+<!--            <a th:href="@{/HomePage#home}" class="header__link active">TRANG CHỦ</a>-->
+<!--        </li>-->
+<!--        <li class="header__items">-->
+<!--            <a th:href="@{/HomePage#about}" class="header__link">VỀ CHÚNG TÔI</a>-->
+<!--        </li>-->
+<!--        <li class="header__items">-->
+<!--            <a th:href="@{/HomePage#blog}" class="header__link">BLOG</a>-->
+<!--        </li>-->
+<!--        <li class="header__items">-->
+<!--            <a th:href="@{/HomePage#agents}" class="header__link">LIÊN HỆ</a>-->
+<!--        </li>-->
+<!--        <li class="header__items">-->
+<!--            <a th:href="@{/BuyTicket}" class="header__link">MUA VÉ</a>-->
+<!--        </li>-->
+<!--        <li class="header__items">-->
+<!--            <a th:href="@{/busroute}" class="header__link">TUYẾN XE</a>-->
+<!--        </li>-->
+<!--    </ul>-->
+<!--</header>-->
+<!--<div class="jumbotron">-->
+<!--    <div class="container-fluid">-->
+<!--        <h1>Tìm Đường Giữa 2 Địa Điểm</h1>-->
+<!--        <p>Tính Toán Đường Đi</p>-->
+<!--        <form class ="frm-horizontal">-->
+<!--            <div class="form-group">-->
+<!--                <label for="from" class="col-xs-2 control label"><i class ="far fa-dot-circle" ></i>-->
+<!--                </label>-->
+<!--                <div class="col-xs-4">-->
+<!--                    <input type="text" id="from" placeholder="Origin" class="form-control">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <label for="to" class="col-xs-2 control label"><i class ="fas fa-map-marker-alt" ></i>-->
+<!--                </label>-->
+<!--                <div class="col-xs-4">-->
+<!--                    <input type="text" id="to" placeholder="Destination" class="form-control">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </form>-->
+<!--        <div class="col-xs-offset-2 col-xs-10">-->
+<!--            <button class="btn btn-info btn-lg"> <i class="fas fa-directions"></i></button>-->
+<!--        </div>-->
+<!--        <div class="container-fluid">-->
+<!--            <div id="googleMap">-->
+
+<!--            </div>-->
+<!--            <div id="outPut">-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div id="map"></div>-->
+<!--<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places" defer ></script>-->
+<!--&lt;!&ndash;<script src="js/route.js"></script>&ndash;&gt;-->
+<!--<script src="../static/js/route.js"></script>-->
 
 <!DOCTYPE html>
 <html>
